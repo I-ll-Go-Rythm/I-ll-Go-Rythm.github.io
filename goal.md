@@ -8,7 +8,7 @@ tag: [Tips, Github io, Notion]
 ---
 # 스터디 목표
 
-![I-ll-Go-Rythm.github.io/assets/img/KakaoTalk_20210111_225425973.jpg](I-ll-Go-Rythm.github.io/assets/img/KakaoTalk_20210111_225425973.jpg)
+![https://github.com/I-ll-Go-Rythm/I-ll-Go-Rythm.github.io/blob/master/assets/img/KakaoTalk_20210111_225425973.jpg](https://github.com/I-ll-Go-Rythm/I-ll-Go-Rythm.github.io/blob/master/assets/img/KakaoTalk_20210111_225425973.jpg)
 
 # 최소한 알아야 하는 것(코딩테스트, 면접)
 
