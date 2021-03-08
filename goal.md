@@ -1,3 +1,11 @@
+---
+layout: post
+title: "Notion으로 글 작성하고 Github io로 글 옮기기"
+subtitle: "[Tips]"
+date: 2020-03-02 17:00
+background: 
+tag: [Tips, Github io, Notion]
+---
 # 스터디 목표
 
 ![%E1%84%89%E1%85%B3%E1%84%90%E1%85%A5%E1%84%83%E1%85%B5%20%E1%84%86%E1%85%A9%E1%86%A8%E1%84%91%E1%85%AD%20fd70a690ea73403ab8dad7896a40df8d/KakaoTalk_20210111_225425973.jpg](%E1%84%89%E1%85%B3%E1%84%90%E1%85%A5%E1%84%83%E1%85%B5%20%E1%84%86%E1%85%A9%E1%86%A8%E1%84%91%E1%85%AD%20fd70a690ea73403ab8dad7896a40df8d/KakaoTalk_20210111_225425973.jpg)
