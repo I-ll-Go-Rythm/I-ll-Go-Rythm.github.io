@@ -1,9 +1,8 @@
 ---
 layout: post
-title: 해시
+title: 스택
 ---
-
-# 해시
+# 스택
 
 - 고준희
     - 완주하지 못한 선수
@@ -179,47 +178,9 @@ title: 해시
         reduce, lambda 의 작동 형식
 
         답을 이끌어내는 함수의 형태
-
-    - 베스트앨범
-
-        ```python
-        genres = ['classic', 'pop', 'classic', 'classic', 'pop']
-        plays = [500, 600, 150, 800, 2500]
-        dic1 = {}
-        dic2 = {}
-        temp = 0
-        for num in plays:
-            order[num]=tem
-            tem +=1
-        for i in genres:
-            dic1[i] = 0
-            dic2[i] = 0
-        for i in genres:
-            if dic1[i]<plays[temp]:
-                dic2[i]=dic1[i]
-                dic1[i]=plays[temp]
-                temp+=1
-                continue
-                
-            if dic2[i]<plays[temp]:
-                dic2[i]=plays[temp]
-                temp+=1
-                continue
-                
-        print(dic1)
-        print(dic2)
-        ```
-
-        ```
-        {'classic': 800, 'pop': 2500}
-        {'classic': 500, 'pop': 600}
-        ```
-
-        실패~~ tuple 내에 고유번호가 추가되는 식 혹은 해쉬 함수를 사용해서 순서를 파악하는 것이 추가로 필요할 듯 하다
-
-    - 
+---
 - 정효인
-    - 완주하지 못한 선수(50점→100점)
+    - 주식가격(100)
 
         ```cpp
         #include <string>
@@ -227,324 +188,25 @@ title: 해시
 
         using namespace std;
 
-        int Hash(vector<string> p, vector<string> c);
-
-        string solution(vector<string> participant, vector<string> completion) {
-            int index = Hash(participant, completion);
-            
-            string answer = participant.at(index);
-            return answer;
-        }
-        int Hash(vector<string> p, vector<string> c)
-        {
-            for(int i=0;i<p.size();i++)
+        vector<int> solution(vector<int> prices) {
+            vector<int> answer;
+            for(int i=0;i<prices.size()-1;i++)
             {
-                for(int j=0;j<c.size();j++)
+                for(int j=i+1;j<prices.size();j++)
                 {
-                    if(p[i]==c[j])
+                    if((prices[i]>prices[j])||(j==(prices.size()-1)))
                     {
-                        c[j]="0";
+                        answer.push_back(j-i);
                         break;
                     }
-                    if(j==(c.size()-1))
-                    {
-                        if(p[i]!=c[j])
-                        return i;
-                    }
                 }
             }
-        }
-        ```
-
-        답은 다 맞았는데 속도 초과로 인한 50점
-        아직 c++를 익히고 있고, 후에 STL을 배우면 다시 풀어보겠음
-
-        ```cpp
-        #include <string>
-        #include <vector>
-        #include <algorithm>
-        using namespace std;
-
-        int Hash(vector<string> p, vector<string> c);
-
-        string solution(vector<string> participant, vector<string> completion) {
-            sort(participant.begin(), participant.end());
-            sort(completion.begin(), completion.end());
-            int index = Hash(participant, completion);
-            
-            string answer = participant[index];
-            return answer;
-        }
-
-        int Hash(vector<string> p, vector<string> c)
-        {
-            sort
-            
-            for(int i=0;i<c.size();i++)
-            {
-                if(p[i] != c[i])
-                {
-                    return i;
-                }
-            }
-            return p.size()-1;
-        }
-        c++
-        ```
-
-        의문점: Hash함수 안에 sort 넣었더니 다른 답이나옴.
-        반면에 main함수(solution)에서 sort하면 답이 나옴.
-
-        ㄴ 해결
-
-        ```cpp
-        #include <string>
-        #include <vector>
-        #include <algorithm>
-        using namespace std;
-
-        int Hash(vector<string> p, vector<string> c);
-
-        string solution(vector<string> participant, vector<string> completion) {
-        	int i;
-        	sort(participant.begin(), participant.end());
-            sort(completion.begin(), completion.end());
-            for(i=0;i<participant.size();i++)
-            {
-                if(participant[i] != completion[i])
-                {
-                    return participant[i];
-                }
-            }
-            return participant[i];
-        }
-        ```
-
-        모범 답안의 기준이 무엇인가?  해시 자료구조를 이용했다는 것을 잘 보여주면 되는건지, 코드가 간단하면 할수록 그것이 모범답안인지, 정해서 다음부터 발표해야할 필요성이 있는 거 같음.
-
-    - 전화번호 목록(100점)
-
-        ```cpp
-        #include <string>
-        #include <vector>
-        #include <algorithm>
-        using namespace std;
-
-        bool solution(vector<string> phone_book) {
-            sort(phone_book.begin(),phone_book.end());
-            for(int i=0;i<phone_book.size()-1;i++)
-            {
-                for(int j=i+1;j<phone_book.size();j++)
-                {
-                    if(phone_book[i].compare(phone_book[j].substr(0,phone_book[i].size()))==0)
-                    {
-                        return false;
-                    }
-                }
-            }
-            bool answer = true;
+            answer.push_back(0);
             return answer;
         }
         ```
 
-        ```jsx
-        #include <string>
-        #include <vector>
-        #include <algorithm>
-        using namespace std;
-
-        bool solution(vector<string> phone_book) {
-            sort(phone_book.begin(),phone_book.end());
-            for(int i=0;i<phone_book.size()-1;i++)
-            {
-        		if(phone_book[i].compare(phone_book[i+1].substr(0,phone_book[i].size()))==0)
-                {
-                    return false;
-                }
-            }
-            bool answer = true;
-            return answer;
-        }
-        ```
-
-        사실 해시문제를 풀면서 느끼는 점이지만, solution 함수를 작성하는 것이 hash function을 구현하는 것이라고 생각한다. hash function = solution, key = solution 함수 입력 인자, index = 0 or 1, value = 0 or 1.
-
-    - 위장
-
-        ```cpp
-        #include <string>
-        #include <vector>
-        #include <algorithm>
-        using namespace std;
-
-        int main(vector<vector<string>> clothes) {
-            int count = 1;
-            int answer = 1;
-            vector<int> c(30);
-            for(int i = 0; i < clothes.size(); i++)
-            {
-                for(int j = 0; j <  clothes[i].size(); j++)
-                {
-                    iter_swap(clothes[i].begin(),clothes[i].end());
-                }
-            }
-            sort(clothes.begin(),clothes.end());
-            for(int i=0;i<clothes.size();i++)
-            {
-                if(clothes[i].begin()==clothes[i+1].begin())
-                {
-                    count++;
-                }
-                else
-                {
-                    c.push_back(count+1);
-                    count = 1;
-                }
-            }
-            c.push_back(count+1);
-            for(int j = 0;j< c.size();j++)
-            {
-                answer*=c[j];
-            }
-            return (answer-1);
-        }
-        ```
-
-        without unordered_map. (컴파일 오류)
-
-        ```cpp
-         if(clothes[i].begin()==clothes[i+1].begin())
-        ```
-
-        이부분 때문. vector에 익숙치 않아서 스왑을 일일이 해주는 것이 불편하다
-
-        ```cpp
-        #include <string>
-        #include <vector>
-        #include <algorithm>
-        using namespace std;
-
-        int solution(vector<vector<string>> clothes) {
-            int answer = 1;
-            int count = 1;
-            for(int i = 0; i < clothes.size(); i++)
-        	{
-        		swap(clothes[i][0],clothes[i][1]);
-        	}
-        	sort(clothes.begin(),clothes.end());
-            for(int i=0;i<clothes.size();i++)
-        	{
-        		if(i==clothes.size()-1)
-        		{
-        			++count;
-        			continue;
-        		}
-        		if(clothes[i][0]!=clothes[i+1][0])
-        		{	
-        			answer *= ++count;
-        			count = 1;
-        		}
-        		else
-        		{
-        			++count;
-        		}
-                
-        	}
-        	answer*=count;
-            return answer-1;
-        }
-        ```
-
-        끈기로 품
-
-        ```cpp
-        #include <string>
-        #include <vector>
-        #include <unordered_map>
-        using namespace std;
-
-        int solution(vector<vector<string>> clothes) {
-            int answer = 1;
-            unordered_map<string, int> hash_map;
-            for(auto cloth: clothes)
-            {
-                hash_map[cloth[1]]++;
-            }
-            for(auto iter =  hash_map.begin();iter != hash_map.end(); iter++)
-            {
-                answer *= (iter->second+1);
-            }
-            return answer-1;
-        }
-        ```
-
-        hash 이용
-
-    - 베스트앨범
-
-        ```cpp
-        #include <string>
-        #include <vector>
-        #include <map>
-        #include <algorithm>
-        #include <iostream>
-
-        using namespace std;
-        bool cmp(const pair<string,int>& a,const pair<string,int>& b)
-        {
-            return a.second > b.second;
-        }
-
-        vector<int> solution(vector<string> genres, vector<int> plays) {
-            vector<int> answer;
-        	vector<int> value;
-        	vector<int> answervalue;
-            vector<string> Sgenres(genres);
-            multimap <string,int> hashmap;
-            map <string,int> shashmap;
-            for(int i=0;i<genres.size();i++)
-            {
-                hashmap.insert(pair(genres[i],plays[i]));
-            }
-          
-            sort(Sgenres.begin(),Sgenres.end());
-            Sgenres.erase(unique(Sgenres.begin(),Sgenres.end()),Sgenres.end());
-            multimap<string,int>::iterator iter;
-            for(int i=0;i<Sgenres.size();i++)
-            {
-                int sum=0;
-                for(iter=hashmap.lower_bound(Sgenres[i]);iter!=hashmap.upper_bound(Sgenres[i]);iter++)
-                {
-                   sum+=(iter->second);
-                }
-                shashmap[Sgenres[i]]=sum;
-            }
-            vector<pair<string,int>> vec(shashmap.begin(), shashmap.end());
-            sort(vec.begin(),vec.end(),cmp);
-            for(int i=0;i<Sgenres.size();i++)
-            {
-                int count=0;
-                for(iter=hashmap.lower_bound(vec[i]);iter!=hashmap.upper_bound(vec[i]);iter++)
-                {
-                   if(count==2)
-        		   {
-        			   break;
-        		   }
-        			answervalue.push_back(iter->second);
-        			count++;
-                }
-                
-            }
-        	for(int i=0;i<answervalue.size();i++)
-        	{
-        		answer.push_back(find(answervalue.begin(),answervalue.end(),answervalue[i]));
-        	}
-            return answer;
-        }
-        ```
-
-    - 
-
+--- 
 - 김건호
     - 완주하지 못한 선수
 
@@ -637,7 +299,7 @@ title: 해시
                 
             return cnt - 1
         ```
-
+---
 - 김윤재
     - 완주하지 못한 선수
 
@@ -743,7 +405,7 @@ title: 해시
         	return answer-1;    
         }
         ```
-
+---
 - 임수환
     - 완주하지 못한 선수
 
