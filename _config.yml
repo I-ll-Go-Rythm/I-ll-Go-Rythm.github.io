@@ -13,20 +13,18 @@ author: Hyoin Jeong
 # 예를 들어 ETRI 라는 항목을 네비게이션 바에 추가하고 싶은 경우, etri.md 파일 생성 후 ETRI: "etri" 라고 지정.
 navbar-links:
   Goal: "goal"
-  Career: "career"
-  Publication: "publication"
-  Blog: "blog"
-  Project: "project"
+  terms: "terms"
+  Programmers: "programmers"
   GitHub: "https://github.com/I-ll-Go-Rythm"
 
 # [수정필요] 아바타 로고 사용 시에는 이미지 파일을 지정 (이미지 파일 업로드 후, 위치 지정)
-avatar: "/assets/img/seokho-square-2.jpg"
+# avatar: "/assets/img/seokho-square-2.jpg"
 # 원형 아바타 이미지 여부 `true` 또는 `false`
-round-avatar: false
+# round-avatar: false
 
 # title text 대신 이미지 사용하고 싶은 경우 설정
 # then specify the following parameter
-#title-img: "/assets/img/seokho-square.jpg"
+# title-img: "/assets/img/seokho-square.jpg"
 
 
 # --- Footer options --- #
